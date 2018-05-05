@@ -2,6 +2,7 @@ package pl.edu.agh.mwo;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -28,7 +29,19 @@ public class TripTest {
         assertEquals(2, storedPhotos.size());
         assertTrue(storedPhotos.contains(photo1));
         assertTrue(storedPhotos.contains(photo2));
-        assertFalse(storedPhotos.contains(photo3));
-        
+        assertFalse(storedPhotos.contains(photo3));   
+            
+    }
+    
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void getPhotosShouldReturnEmptyList() {
+        // given
+        Trip trip = new Trip();
+
+        // when
+        new ArrayList<Photo>().get(0);
+
+        // then
+        assertTrue(trip.getPhotos().isEmpty());
     }
 }
