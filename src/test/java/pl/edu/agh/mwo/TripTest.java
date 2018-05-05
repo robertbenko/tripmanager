@@ -29,19 +29,29 @@ public class TripTest {
         assertEquals(2, storedPhotos.size());
         assertTrue(storedPhotos.contains(photo1));
         assertTrue(storedPhotos.contains(photo2));
-        assertFalse(storedPhotos.contains(photo3));   
+        assertFalse(storedPhotos.contains(photo3));
             
     }
     
-    @Test(expected = IndexOutOfBoundsException.class)
+    @Test
     public void getPhotosShouldReturnEmptyList() {
         // given
         Trip trip = new Trip();
 
         // when
-        new ArrayList<Photo>().get(0);
-
+        
         // then
         assertTrue(trip.getPhotos().isEmpty());
     }
+    
+    @Test(expected = IllegalArgumentException.class)
+    public void addPhotosShouldFailIfPhotoIsNull() {
+        // given
+        Trip trip = new Trip();
+
+        // when
+        trip.addPhoto(null);
+        
+    }
+    
 }

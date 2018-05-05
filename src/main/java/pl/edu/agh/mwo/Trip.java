@@ -7,6 +7,7 @@ public class Trip {
 
     public String name;
     public String description;
+    
     private List<Photo> photos = new ArrayList<>();
 
     public void addPhoto(Photo p) {
@@ -19,5 +20,4 @@ public class Trip {
     public List<Photo> getPhotos() {
         return photos;
     }
-
 }
