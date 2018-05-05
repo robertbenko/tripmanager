@@ -29,5 +29,6 @@ public class TripTest {
         assertTrue(storedPhotos.contains(photo1));
         assertTrue(storedPhotos.contains(photo2));
         assertFalse(storedPhotos.contains(photo3));
+        
     }
 }
