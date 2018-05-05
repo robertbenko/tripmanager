@@ -17,7 +17,6 @@ public class TripManagerTest {
 		//when
 		Trip trip1 = new Trip();
 		Trip trip2 = new Trip();
-		//Trip trip3 = new Trip();
 		
 		tm.addTrip(trip1);
 		tm.addTrip(trip2);
@@ -30,4 +29,22 @@ public class TripManagerTest {
 		assertTrue(storedTrips.contains(trip2));
 	}
 	
+	@Test
+	public void removeStoredTrips() {
+		//given
+		TripManager tm = new TripManager();
+		Trip trip1 = new Trip();
+		Trip trip2 = new Trip();
+		
+		//when
+		tm.addTrip(trip1);
+		tm.addTrip(trip2);
+		
+		tm.removeTrip(trip2);
+		
+		//then
+		List<Trip> storedTrips = tm.getTrips();
+		assertEquals(1, storedTrips.size());
+		assertTrue(storedTrips.contains(trip1));
+	}
 }

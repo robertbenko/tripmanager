@@ -14,5 +14,9 @@ public class TripManager {
 	public List<Trip> getTrips() {
 		return trips;
 	}
+	
+	public void removeTrip(Trip trip) {
+		trips.remove(trip);
+	}
 
 }
