@@ -19,4 +19,7 @@ public class TripManager {
 		trips.remove(trip);
 	}
 
+	public Trip findTrip(String keyword) {
+		return null; //todo: implement this!
+	}
 }

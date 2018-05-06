@@ -47,4 +47,43 @@ public class TripManagerTest {
 		assertEquals(1, storedTrips.size());
 		assertTrue(storedTrips.contains(trip1));
 	}
+	
+	@Test
+	public void findTripShouldFindFirstTripByName() {
+		// given
+		TripManager tm = new TripManager();
+		Trip trip1 = new Trip();
+		trip1.name = "From Russia with love";
+		tm.addTrip(trip1);
+		Trip trip2 = new Trip();
+		trip2.name = "Mountain trip";
+		tm.addTrip(trip2);
+		Trip trip3 = new Trip();
+		trip3.name = "Russia again";
+		tm.addTrip(trip3);
+		
+		// when
+		Trip foundTrip = tm.findTrip("Russia");
+		
+		// then
+		assertEquals(trip1, foundTrip);
+	}
+	
+	@Test
+	public void findTripShouldNotFailForTripWithNullName() {
+		// given
+		TripManager tm = new TripManager();
+		Trip trip1 = new Trip();
+		trip1.name = null;
+		tm.addTrip(trip1);
+		Trip trip2 = new Trip();
+		trip2.name = "From Russia with love";
+		tm.addTrip(trip2);
+		
+		// when
+		Trip foundTrip = tm.findTrip("Russia");
+		
+		// then
+		assertEquals(trip2, foundTrip);
+	}
 }
