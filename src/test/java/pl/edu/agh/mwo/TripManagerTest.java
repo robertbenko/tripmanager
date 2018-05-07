@@ -86,4 +86,19 @@ public class TripManagerTest {
 		// then
 		assertEquals(trip2, foundTrip);
 	}
+	
+	@Test 
+	public void findTripShouldReturnNullWhenNoTripWithGivenKeywordExists() {
+		// given
+		TripManager tm = new TripManager();
+		Trip trip1 = new Trip();
+		trip1.name = "Mountain trip";
+		tm.addTrip(trip1);
+				
+		// when
+		Trip foundTrip = tm.findTrip("Russia");
+				
+		// then
+		assertEquals(null, foundTrip);
+	}
 }
